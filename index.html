@@ -1,0 +1,182 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Critical Mineral Explorer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="header">
+    <div class="logo">🌍 Critical Mineral Explorer</div>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#minerals">Minerals</a>
+        <a href="#energy">Clean Energy</a>
+        <a href="#compare">Compare</a>
+        <a href="#quiz">Quiz</a>
+    </nav>
+</header>
+
+<section class="hero" id="home">
+    <div class="hero-content">
+        <p class="tag">DISCOVER • EXPLORE • LEARN</p>
+        <h1>Critical Minerals:<br>From Minerals to Clean Energy</h1>
+        <p>
+            Discover the essential minerals powering electric vehicles,
+            solar panels, wind turbines and a sustainable future.
+        </p>
+        <a href="#minerals" class="main-btn">Explore Minerals →</a>
+    </div>
+    <div class="hero-visual">💎 🌱 ⚡</div>
+</section>
+
+<section class="stats">
+    <div><h2>6</h2><p>Minerals to Explore</p></div>
+    <div><h2>4</h2><p>Energy Applications</p></div>
+    <div><h2>15</h2><p>Quiz Questions</p></div>
+    <div><h2>100%</h2><p>Learning Experience</p></div>
+</section>
+
+<section class="section" id="minerals">
+    <div class="section-heading">
+        <p class="tag">MINERAL LIBRARY</p>
+        <h2>Explore Critical Minerals</h2>
+        <p>Learn about their properties, applications and importance.</p>
+    </div>
+
+    <input type="text" id="searchInput"
+        placeholder="🔍 Search minerals by name..." />
+
+    <div class="filters">
+        <button class="filter-btn active" data-filter="All">All</button>
+        <button class="filter-btn" data-filter="Battery">Battery Minerals</button>
+        <button class="filter-btn" data-filter="Energy">Energy Materials</button>
+        <button class="filter-btn" data-filter="Technology">Technology</button>
+    </div>
+
+    <div class="mineral-grid" id="mineralGrid"></div>
+</section>
+
+<section class="section energy-section" id="energy">
+    <div class="section-heading">
+        <p class="tag">CLEAN ENERGY CONNECTION</p>
+        <h2>Minerals Behind Clean Energy</h2>
+        <p>Select a technology to discover the minerals associated with it.</p>
+    </div>
+
+    <div class="energy-grid">
+        <button class="energy-card" data-energy="EV">
+            <span>🚗</span><h3>Electric Vehicles</h3>
+            <p>Explore battery materials and electric mobility.</p>
+        </button>
+        <button class="energy-card" data-energy="Solar">
+            <span>☀️</span><h3>Solar Energy</h3>
+            <p>Discover materials used in solar technologies.</p>
+        </button>
+        <button class="energy-card" data-energy="Wind">
+            <span>🌬️</span><h3>Wind Energy</h3>
+            <p>Learn about materials used in wind turbines.</p>
+        </button>
+        <button class="energy-card" data-energy="Battery">
+            <span>🔋</span><h3>Energy Storage</h3>
+            <p>Understand rechargeable battery materials.</p>
+        </button>
+    </div>
+
+    <div id="energyDetails" class="info-panel" hidden></div>
+</section>
+
+<section class="section" id="compare">
+    <div class="section-heading">
+        <p class="tag">SIDE-BY-SIDE LEARNING</p>
+        <h2>Compare Minerals</h2>
+        <p>Select two minerals to compare their properties and applications.</p>
+    </div>
+
+    <div class="compare-controls">
+        <select id="mineralOne"></select>
+        <span>VS</span>
+        <select id="mineralTwo"></select>
+        <button class="main-btn" id="compareBtn">Compare Now</button>
+    </div>
+
+    <div id="comparisonResult"></div>
+</section>
+
+<section class="section progress-section">
+    <div class="section-heading">
+        <p class="tag">YOUR LEARNING JOURNEY</p>
+        <h2>Learning Progress</h2>
+        <p>Track the minerals you have explored and your quiz performance.</p>
+    </div>
+
+    <div class="progress-card">
+        <div class="progress-item">
+            <h3 id="exploredCount">0 / 6</h3>
+            <p>Minerals Explored</p>
+        </div>
+        <div class="progress-item">
+            <h3 id="bestScore">Not attempted</h3>
+            <p>Best Quiz Score</p>
+        </div>
+        <div class="progress-item">
+            <h3 id="quizAttempts">0</h3>
+            <p>Quiz Attempts</p>
+        </div>
+    </div>
+</section>
+
+<section class="section quiz-section" id="quiz">
+    <div class="section-heading">
+        <p class="tag">TEST YOUR KNOWLEDGE</p>
+        <h2>Critical Minerals Quiz</h2>
+        <p>Answer 10 random questions and check your knowledge.</p>
+    </div>
+
+    <div class="quiz-box" id="quizBox">
+        <div class="quiz-top">
+            <span id="questionNumber">Question 1 / 10</span>
+            <span id="liveScore">Score: 0</span>
+        </div>
+
+        <div class="progress-track">
+            <div id="quizProgress"></div>
+        </div>
+
+        <h3 id="questionText"></h3>
+        <div id="optionsContainer"></div>
+        <p id="feedback"></p>
+
+        <button id="nextBtn" class="main-btn" disabled>
+            Next Question →
+        </button>
+    </div>
+
+    <div id="quizResult" class="quiz-box result-box" hidden>
+        <h2>🎉 Quiz Completed!</h2>
+        <h1 id="finalScore"></h1>
+        <p id="resultMessage"></p>
+        <div id="answerReview"></div>
+        <button id="restartBtn" class="main-btn">Try Another Quiz ↻</button>
+    </div>
+</section>
+
+<div id="mineralModal" class="modal" hidden>
+    <div class="modal-content">
+        <button class="close-btn" id="closeModal">✕</button>
+        <div id="modalBody"></div>
+    </div>
+</div>
+
+<footer>
+    <h3>Critical Mineral Explorer</h3>
+    <p>Connecting Critical Minerals with a Cleaner Energy Future.</p>
+    <p>Educational Project | HTML • CSS • JavaScript</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
